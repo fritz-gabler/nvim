@@ -32,6 +32,17 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Find out more about tmux sessions
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
+--Telescope
+vim.keymap.set('n', '<leader>pf', function() require('telescope.builtin').find_files() end)
+vim.keymap.set('n', '<C-p>', function() require('telescope.builtin').git_files() end)
+vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end)
+vim.keymap.set('n', '<leader>ps', function()
+  require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
+end)
+
+
+
+
 
 vim.api.nvim_set_keymap('v', '<Leader>y', '<Cmd>lua CopyWithoutLosing()<CR>', { noremap = true, silent = true })
 
