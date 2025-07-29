@@ -2,11 +2,12 @@
 vim.g.mapleader = " "
 
 ----------ALL-LEADER-----------------------
+
 vim.keymap.set("n", "<leader>pv", function()
-	vim.cmd("Ex")
+  vim.cmd("Ex")
 end)
 vim.keymap.set("n", "<leader>h", function()
-	vim.cmd("Std")
+  vim.cmd("Std")
 end)
 vim.keymap.set("n", "<leader>l", ":")
 
@@ -18,17 +19,17 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
+  vim.cmd("so")
 end)
 vim.keymap.set(
-	"n",
-	"<leader>k",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "Change word under cursor" }
+  "n",
+  "<leader>k",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Change word under cursor" }
 )
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>s", function()
-	vim.cmd("suspend")
+  vim.cmd("suspend")
 end)
 vim.api.nvim_set_keymap("n", "<leader>gs", ":LazyGit<CR>", { noremap = true, silent = true })
 
@@ -52,60 +53,65 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 --Telescope
 vim.keymap.set("n", "<leader>pf", function()
-	require("telescope.builtin").find_files()
+  require("telescope.builtin").find_files()
 end)
 vim.keymap.set("n", "<C-p>", function()
-	require("telescope.builtin").git_files()
+  require("telescope.builtin").git_files()
 end)
 vim.keymap.set("n", "<leader>fg", function()
-	require("telescope.builtin").live_grep()
+  require("telescope.builtin").live_grep()
 end)
 vim.keymap.set("n", "<leader>ps", function()
-	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
+  require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
 vim.api.nvim_set_keymap("v", "<Leader>y", "<Cmd>lua CopyWithoutLosing()<CR>", { noremap = true, silent = true })
 
 function CopyWithoutLosing()
-	-- Save the current line into a variable
-	local saved_line = vim.api.nvim_buf_get_lines(0, vim.fn.line(".") - 1, vim.fn.line("."), false)[1]
+  -- Save the current line into a variable
+  local saved_line = vim.api.nvim_buf_get_lines(0, vim.fn.line(".") - 1, vim.fn.line("."), false)[1]
 
-	-- Copy the selected text
-	vim.cmd("normal! y")
+  -- Copy the selected text
+  vim.cmd("normal! y")
 
-	-- Restore the original line into the buffer
-	vim.api.nvim_buf_set_lines(0, vim.fn.line(".") - 1, vim.fn.line("."), false, { saved_line })
+  -- Restore the original line into the buffer
+  vim.api.nvim_buf_set_lines(0, vim.fn.line(".") - 1, vim.fn.line("."), false, { saved_line })
 end
 
---Harpoon 
-vim.keymap.set("n", "<C-e>", function ()
+--Harpoon
+vim.keymap.set("n", "<C-e>", function()
   require("harpoon.ui").toggle_quick_menu()
 end)
 
-vim.keymap.set("n", "<leader>a", function ()
+vim.keymap.set("n", "<leader>a", function()
   require("harpoon.mark").add_file()
 end)
 
-vim.keymap.set("n", "<leader>n", function ()
+vim.keymap.set("n", "<leader>n", function()
   require("harpoon.ui").nav_next()
 end)
 
-vim.keymap.set("n", "<leader>n", function ()
+vim.keymap.set("n", "<leader>n", function()
   require("harpoon.ui").nav_prev()
 end)
 
-vim.keymap.set("n", "<C-j>", function ()
+vim.keymap.set("n", "<C-j>", function()
   require("harpoon.ui").nav_file(1)
 end)
 
-vim.keymap.set("n", "<C-l>", function ()
+vim.keymap.set("n", "<C-l>", function()
   require("harpoon.ui").nav_file(2)
 end)
 
-vim.keymap.set("n", "<C-o>", function ()
+vim.keymap.set("n", "<C-o>", function()
   require("harpoon.ui").nav_file(3)
 end)
 
-vim.keymap.set("n", "<C-m>", function ()
+vim.keymap.set("n", "<C-m>", function()
   require("harpoon.ui").nav_file(4)
 end)
+
+--UndoTree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set('n', '<Tab>', '<C-w>w', { noremap = true, silent = true })
+
