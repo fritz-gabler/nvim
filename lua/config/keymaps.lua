@@ -128,22 +128,3 @@ end, { desc = 'CodeCompanion: buffer + prompt', noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>j', '<cmd>CodeCompanionChat Toggle<CR>', { noremap = true, silent = true, desc = 'Toggle CodeCompanion Chat buffer' })
 vim.keymap.set('i', 'jj', '<Esc><cmd>CodeCompanionChat Toggle<CR>')
--- In insert mode, make Enter act like Ctrl+S in CodeCompanion chat buffer
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "codecompanion",
-  callback = function()
-    vim.keymap.set(
-      "i",
-      "<CR>",
-      function()
-        -- Send the <C-s> keystroke directly without needing to leave insert mode
-        vim.api.nvim_feedkeys(
-          vim.api.nvim_replace_termcodes("<C-s>", true, false, true),
-          "n", -- non-recursive mapping
-          false
-        )
-      end,
-      { buffer = true, noremap = true, silent = true, desc = "Send chat message" }
-    )
-  end
-})
