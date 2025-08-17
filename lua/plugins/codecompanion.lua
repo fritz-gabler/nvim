@@ -16,7 +16,7 @@ return {
             },
             schema = {
               model = {
-                default = "openai/gpt-oss-20b:free",
+                default = "mistralai/mistral-small-3.2-24b-instruct:free",
               },
             },
           })
