@@ -38,6 +38,7 @@ return {
         }, {
           { name = "buffer" },
         }),
+        { name = 'css_classnames' },
       })
     end,
   },

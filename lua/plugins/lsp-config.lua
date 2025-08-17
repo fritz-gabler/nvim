@@ -7,7 +7,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "clangd", "biome" }
+        ensure_installed = { "lua_ls", "ts_ls", "clangd", "biome", "html", "cssls" }
        })
     end
   },
@@ -28,6 +28,8 @@ return {
       lspconfig.biome.setup({
         capabilities = capabilities
       })
+      lspconfig.html.setup { capabilities = capabilities }
+      lspconfig.cssls.setup { capabilities = capabilities }
     end
   }
 }
