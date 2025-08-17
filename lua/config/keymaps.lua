@@ -126,5 +126,5 @@ vim.keymap.set('n', '<leader>i', function()
   vim.cmd('CodeCompanion #{buffer} ' .. instruction)
 end, { desc = 'CodeCompanion: buffer + prompt', noremap = true, silent = true })
 
-vim.keymap.set('n', '<leader>j', '<cmd>CodeCompanionChat Toggle<CR>', { noremap = true, silent = true, desc = 'Toggle CodeCompanion Chat buffer' })
-vim.keymap.set('i', 'jj', '<Esc><cmd>CodeCompanionChat Toggle<CR>')
+vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>', { noremap = true, silent = true, desc = 'Toggle CodeCompanion Chat buffer' })
+vim.keymap.set('i', 'ww', '<Esc><cmd>CodeCompanionChat Toggle<CR>')
