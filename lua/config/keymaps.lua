@@ -99,15 +99,15 @@ vim.keymap.set("n", "<C-j>", function()
   require("harpoon.ui").nav_file(1)
 end)
 
-vim.keymap.set("n", "<C-l>", function()
+vim.keymap.set("n", "<C-k>", function()
   require("harpoon.ui").nav_file(2)
 end)
 
-vim.keymap.set("n", "<C-o>", function()
+vim.keymap.set("n", "<C-l>", function()
   require("harpoon.ui").nav_file(3)
 end)
 
-vim.keymap.set("n", "<C-m>", function()
+vim.keymap.set("n", "<C-o>", function()
   require("harpoon.ui").nav_file(4)
 end)
 
